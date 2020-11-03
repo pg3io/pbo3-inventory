@@ -1,0 +1,4 @@
+plugin: pbo3         # Name of the plugin
+api_url: 'ApiEndpoint'
+username: 'YourApiUsername'
+password: 'YourApiPassword' # Optional, if not provided the script will prompt for password
