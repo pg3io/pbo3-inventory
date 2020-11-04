@@ -22,6 +22,9 @@ DOCUMENTATION = r'''
       password:
         description: password
         type: string
+      path_to_inventory:
+        description: directory
+        type: string
 '''
 
 login = """
@@ -307,6 +310,8 @@ class InventoryModule(BaseInventoryPlugin, Constructable, Cacheable):
         result = {}
         count = 0
         if data is None:
+            return {'ansible_user': 'admin'}
+        if len(data['globalVars']) == 0:
             return {'ansible_user': 'admin'}
         for i in range(len(data['globalVars'])):
             if data['globalVars'][i]['key'] != 'ansible_user':
